@@ -1,0 +1,17 @@
+services:
+  testdb:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: 'test-database'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'secr3t!'
+      MYSQL_ROOT_PASSWORD: 'secr3t!'
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    container_name: test-database
+    ports:
+      - 3306:3306
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
