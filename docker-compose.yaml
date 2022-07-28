@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'secr3t!'
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-    container_name: test-database
+    container_name: database
     ports:
       - 3306:3306
     expose:

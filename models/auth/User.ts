@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm"
 import { Address, Group } from "../";
 import { Base } from "../Base";
+import { Permission } from './Permission';
 
 @Entity('auth_users')
 export class User extends Base {
@@ -50,10 +51,14 @@ export class User extends Base {
     @Column({ type: 'tinyint', default: 1 })
     is_active: number;
 
-    @OneToMany(() => Address, address => address.user)
+    @OneToMany(type => Address, address => address.user)
     addresses: Address[];
 
-    @ManyToMany(() => Group, (group) => group.users, { createForeignKeyConstraints: true })
-    @JoinTable({ name: 'group_users'})
+    @ManyToMany(type => Group, (group) => group.users)
+    @JoinTable({ name: 'group_users', joinColumn: { name: 'user_id' }, inverseJoinColumn: { name: 'group_id' }})
     groups: Group[];
+
+    @ManyToMany(type => Permission, permission => permission.users)
+    @JoinTable({ name: 'user_permissions', joinColumn: { name: 'user_id' }, inverseJoinColumn: { name: 'permission_id' } })
+    permissions: Permission[]
 }

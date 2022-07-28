@@ -8,3 +8,4 @@ export { default as provinceService } from './adm/province.service';
 export { default as cityService } from './adm/city.service';
 
 export { default as groupService } from './auth/group.service';
+export { default as permissionService } from './auth/permission.service';

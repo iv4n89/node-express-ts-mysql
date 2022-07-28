@@ -9,3 +9,4 @@ export * from './adm/Country';
 export * from './adm/Province';
 
 export * from './auth/Group';
+export * from './auth/Permission';

@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Address, City, Community, Country, Group, Province, User } from '../models';
+import { Address, City, Community, Country, Group, Province, User, Permission } from '../models';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 const AppDataSource = new DataSource({
@@ -16,7 +16,8 @@ const AppDataSource = new DataSource({
         Province,
         City,
         Address,
-        Group
+        Group,
+        Permission
     ],
     synchronize: true,
     namingStrategy: new SnakeNamingStrategy()

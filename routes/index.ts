@@ -12,3 +12,4 @@ export { default as provinceRouter } from './adm/province.routes';
 export { default as cityRouter } from './adm/city.routes';
 
 export { default as groupRouter } from './auth/group.routes';
+export { default as permissionRouter } from './auth/permission.routes';
